@@ -1,0 +1,176 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin:0; /*importante zerar as configurações de espaço*/
+  padding:0;
+  font-family: sans-serif; /*fonte da págia, usada para os botões*/
+  background: linear-gradient(#9055FF, #13E2DA); /*fundo degradê*/
+}
+
+body h2 {
+  font-family: 'Comfortaa', cursive; /*fonte do google para o título*/
+}
+
+.login-box {
+  position: absolute; /*alinhado ao body*/
+  top: 50%; /*top e left em porcentagem para manter no centro com responsividade*/
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%); /*alinha o elemento nos exos x e y*/
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box; /*ajusta o tamanho da box com relação ao seu conteúdo, ajuda na responsividade*/
+  box-shadow: inset 0 1px 25px rgba(0, 0, 0, .6); /*sombra, isent faz sombra interna*/
+  border-radius: 4px;
+  
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none; /*tira a borda padrão*/
+  border-bottom: 1px solid #fff;
+  outline: none; /*tira a borda padrão quando clicado*/
+  background: transparent;
+}
+
+.login-box .user-box label {
+  position: absolute; /*fixa a palavra no lugar*/
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none; /*permite colocar o username clicando em cima da palavra*/
+  transition: .5s; /*dá um tempo de 0.5 segundos na animação das letras*/
+}
+
+.login-box .user-box input:focus ~ label, /*faz a animação de diminuir a letra*/
+.login-box .user-box input:valid ~ label { /*impede que o campo seja deixado em branco*/
+  top: -20px;
+  left: 0;
+  color: #00dde9; /*atribui esta cor a letra quando iniciada a animação*/
+  font-size: 12px;
+}
+
+.login-box {
+  overflow: hidden; /*O conteúdo é cortado e nenhuma barra de rolagem é exibida, usado para o efeito não ultrapassar a box*/
+}
+
+.botao-register{
+  margin-left: 16%;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block; /*permite colocar os blocos em linha, utilizando o maior espaço possível*/
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none; /*desliga a o sublinhado das palavras*/
+  text-transform: uppercase; /*deixa as letras maiúsculas*/
+  transition: .5s; /*tempo de transição da cor dos botões*/
+  margin-top: 40px;
+  letter-spacing: 4px; /*espaço entre as letras*/
+  border-radius: 5px;
+}
+
+.login-box a:hover { /*permite executar algo quando o mouser passar por cima, não recomendado para mobile*/
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.login-box span { /*span é um espaço específico do login-box, onde ficará a linha com animação*/
+  position: absolute;
+}
+
+.login-box span:nth-child(1) { /*span:nth-child significa a seleção de um elemento, (1) significa que é o primeiro elemento*/
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4); /*degradê da linha, (ângulo de 90 graus, com duas cores = transparente indo para azul)*/
+  animation: btn-login1 4s linear infinite; /*faz uma animação no objeto btn-login1, ao qual foi lhe atribuido este nome, durando 4 segundos, de forma linear e repetitiva*/
+}
+
+@keyframes btn-login1 { /*@keyframes anima um objeto de 0% até 100% da sua duração*/
+  0% {
+    left: -100%; /*no início a linha estava a -100% do left*/
+  }
+  50%,100% { /*no meio e no fim a linha está a 100% do left*/
+    left: 100%;
+  }
+}
+
+.login-box span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-login2 4s linear infinite;
+  animation-delay: 1s
+}
+
+@keyframes btn-login2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-login3 4s linear infinite;
+  animation-delay: 2s
+}
+
+@keyframes btn-login3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-login4 4s linear infinite;
+  animation-delay: 3s
+}
+
+@keyframes btn-login4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
